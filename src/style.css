@@ -2,5 +2,141 @@
 
 @import "_preflight.css" layer(preflight);
 
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+
 @layer main {
+  :root {
+    --deep-violet: #21092f;
+    --light-grey: #dfdee0;
+
+    background-color: white;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+  }
+
+  main {
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  .container--cards {
+    position: relative;
+    height: 28.3rem;
+  }
+
+  div[class^="container--card--"] {
+    position: absolute;
+    width: 28.6rem;
+    height: 15.7rem;
+    background-size: contain;
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 0.1286rem;
+  }
+
+  .container--card--back {
+    top: 3.2rem;
+    right: 1.6rem;
+    background-image: url(/bg-card-back.png);
+  }
+
+  .container--card--back > span {
+    position: absolute;
+    top: 45%;
+    right: 3.7rem;
+  }
+
+  .container--card--front {
+    bottom: 0;
+    left: 1.7rem;
+    background-image: url(/bg-card-front.png);
+    padding: 2rem;
+    display: grid;
+    grid-template: 3rem 1fr 1.1rem / repeat(2, minmax(0, 1fr));
+    row-gap: 1.7rem;
+  }
+
+  .container--card--front > * {
+    display: grid;
+    align-items: end;
+  }
+
+  .front__logo {
+    height: 100%;
+    grid-column: span 2 / span 2;
+  }
+
+  .front__number {
+    /* margin-top: 2rem; */
+    grid-column: span 2 / span 2;
+    font-size: 1.8rem;
+    letter-spacing: 0.22rem;
+  }
+
+  .front__owner {
+    text-transform: uppercase;
+  }
+
+  .front__date {
+    text-align: right;
+  }
+
+  .form {
+    padding: 4.8rem 2.4rem 4.5rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  .form__group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.9rem;
+    color: var(--deep-violet);
+  }
+
+  .form__group label {
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+  }
+
+  .form__group input {
+    font-size: 1.8rem;
+    padding: 1.1rem 0 1.1rem 1.6rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--light-grey);
+  }
+
+  input::placeholder {
+    opacity: 0.25;
+  }
+
+  .form > div:not(.form__group) {
+    display: flex;
+    column-gap: 1.1rem;
+  }
+
+  .form > div:not(.form__group) > .form__group {
+    width: calc(50% - 0.55rem);
+  }
+
+  .form > div:not(.form__group) > .form__group:first-of-type {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 0.8rem;
+  }
+
+  .form > div:not(.form__group) > .form__group:first-of-type > label {
+    grid-column: span 2 / span 2;
+  }
+
+  .form__cta {
+    margin-top: 0.8rem;
+    color: white;
+    font-size: 1.8rem;
+    padding-block: 1.5rem;
+    background-color: var(--deep-violet);
+    border-radius: 0.8rem;
+  }
 }

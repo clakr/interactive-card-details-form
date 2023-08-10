@@ -18,6 +18,53 @@
   <body>
     <main>
       <h1 class="sr-only"></h1>
+      <section class="container--cards">
+        <picture>
+          <source media="(min-width: 1440px)" srcset="/bg-main-desktop.png" />
+          <img src="/bg-main-mobile.png" alt="" />
+        </picture>
+        <div class="container--card--back">
+          <span class="back__number">000</span>
+        </div>
+        <div class="container--card--front">
+          <img class="front__logo" src="card-logo.svg" alt="" />
+          <span class="front__number">0000 0000 0000 0000</span>
+          <span class="front__owner">Jane Appleseed</span>
+          <span class="front__date">00/00</span>
+        </div>
+      </section>
+      <form class="form">
+        <div class="form__group">
+          <label for="cardholderName">Cardholder Name</label>
+          <input
+            type="text"
+            name="cardholderName"
+            id="cardholderName"
+            placeholder="e.g. Jane Appleseed"
+          />
+        </div>
+        <div class="form__group">
+          <label for="cardNumber">Card Number</label>
+          <input
+            type="text"
+            name="cardNumber"
+            id="cardNumber"
+            placeholder="e.g. 1234 5678 9123 0000"
+          />
+        </div>
+        <div>
+          <div class="form__group">
+            <label for="expirationDate">Exp. Date (MM/YY)</label>
+            <input type="text" name="MM" id="expirationDate" placeholder="MM" />
+            <input type="text" name="YY" placeholder="YY" />
+          </div>
+          <div class="form__group">
+            <label for="">CVC</label>
+            <input type="text" name="" id="" placeholder="e.g. 123" />
+          </div>
+        </div>
+        <button class="form__cta">Confirm</button>
+      </form>
     </main>
   </body>
 </html>
