@@ -8,6 +8,8 @@
   :root {
     --deep-violet: #21092f;
     --light-grey: #dfdee0;
+    --red: #ff5050;
+    --purplish-grey: #8f8694;
 
     background-color: white;
     font-family: "Space Grotesk", sans-serif;
@@ -17,6 +19,8 @@
   main {
     min-height: 100vh;
     min-height: 100svh;
+    display: flex;
+    flex-direction: column;
   }
 
   .container--cards {
@@ -87,12 +91,12 @@
   }
 
   .form {
-    max-width: 37.5rem;
-    padding: 4.8rem 2.4rem 4.5rem;
+    width: 37.5rem;
+    margin: auto;
+    padding-inline: 2.4rem;
     display: flex;
     flex-direction: column;
     row-gap: 2rem;
-    margin-inline: auto;
   }
 
   .form__group {
@@ -119,9 +123,27 @@
     opacity: 0.25;
   }
 
+  input:invalid,
+  input.invalid {
+    border-color: var(--red);
+  }
+
+  input:invalid ~ span,
+  input.invalid ~ span {
+    display: block;
+  }
+
+  .form__group span {
+    display: none;
+    font-size: 1.2rem;
+    color: var(--red);
+  }
+
   .form > div:not(.form__group) {
     display: flex;
     column-gap: 1.1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
   .form > div:not(.form__group) > .form__group {
@@ -138,13 +160,58 @@
     grid-column: span 2 / span 2;
   }
 
-  .form__cta {
-    margin-top: 0.8rem;
+  main button {
     color: white;
     font-size: 1.8rem;
     padding-block: 1.5rem;
     background-color: var(--deep-violet);
     border-radius: 0.8rem;
+  }
+
+  .form__cta {
+    margin-top: 0.8rem;
+  }
+
+  .container--post {
+    display: none;
+    margin: auto;
+    padding-inline: 2.4rem;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 37.5rem;
+  }
+
+  main.post .container--post {
+    display: flex;
+  }
+
+  main.post .form {
+    display: none;
+  }
+
+  .container--post img {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  main h2 {
+    margin-top: 3.5rem;
+    color: var(--deep-violet);
+    font-size: 2.8rem;
+    letter-spacing: 0.3422rem;
+    text-transform: uppercase;
+  }
+
+  .container--post span {
+    margin-top: 1.6rem;
+    color: var(--purplish-grey);
+    font-size: 1.8rem;
+  }
+
+  .container--post button {
+    margin-top: 4.8rem;
+    align-self: stretch;
   }
 
   @media screen and (min-width: 1440px) {
@@ -200,10 +267,9 @@
     }
 
     .form {
-      max-width: 38.1rem;
-      padding: 0;
+      width: 38.1rem;
+      padding-inline: unset;
       row-gap: 2.6rem;
-      margin: auto;
     }
 
     .form > div:not(.form__group) {
@@ -220,6 +286,11 @@
 
     .form__cta {
       margin-top: 1.4rem;
+    }
+
+    .container--post {
+      padding-inline: unset;
+      width: 38.1rem;
     }
   }
 }
